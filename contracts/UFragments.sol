@@ -325,4 +325,56 @@ contract UFragments is ERC20Detailed, Ownable {
         emit Approval(msg.sender, spender, _allowedFragments[msg.sender][spender]);
         return true;
     }
+/*
+1号合约地址：100万  占比20%  区块浏览器标签（创世团队）
+注：两年后每月释放5%，20个月释放完。
+收币地址：0xB359eDB95cef97e5862E0899aE52be8e96E36cee
+2号合约地址：60万   占比12%  区块浏览器标签（投资机构）
+注：两年后每月释放5%，20个月释放完。
+收币地址：0xDD6E4E63d71be7c238Cd408F2BFa4Bf6EF3b1d4D
+3号合约地址：50万  占比10% 区块浏览器标签（技术开发者）
+注：半年后每月释放10%，10个月释放完。
+收币地址：0x9D58fDf0849Ad62226eD7D468606e39Dae1f3Bb0
+如下图：
+4号流通地址：290万 占比58%
+收币地址：0x80c0B47D196F57d8A60B94b835007AECc0BE8Ece
+*/
+    function releaseForFoundingTeam()  public
+        validRecipient(to)
+        whenTokenNotPaused
+        returns (bool)
+    {
+         
+    }
+    function releaseForInvestmentTeam()  public
+        validRecipient(to)
+        whenTokenNotPaused
+        returns (bool)
+    {
+         
+    }
+    function releaseForDevelopmentTeam()  public
+        validRecipient(to)
+        whenTokenNotPaused
+        returns (bool)
+    {
+         
+    }
+
+    function releaseForRest()  public
+        validRecipient(to)
+        whenTokenNotPaused
+        returns (bool)
+    {
+        address to = "0x80c0B47D196F57d8A60B94b835007AECc0BE8Ece";
+        //2,900,000 token=>to
+        uint256 value =  29 * 10**5 * 10**DECIMAL;
+        uint256 gonValue = value.mul(_gonsPerFragment);
+        _gonBalances[msg.sender] = _gonBalances[msg.sender].sub(gonValue);
+        _gonBalances[to] = _gonBalances[to].add(gonValue);
+        emit Transfer(msg.sender, to, value);
+        return true;
+         
+    }
+
 }
