@@ -339,34 +339,36 @@ contract UFragments is ERC20Detailed, Ownable {
 4号流通地址：290万 占比58%
 收币地址：0x80c0B47D196F57d8A60B94b835007AECc0BE8Ece
 */
-    function releaseForFoundingTeam()  public
+    function releaseForFoundingTeam(address to)  public
         validRecipient(to)
         whenTokenNotPaused
         returns (bool)
     {
+        address to = "0xB359eDB95cef97e5862E0899aE52be8e96E36cee";
          
     }
-    function releaseForInvestmentTeam()  public
+    function releaseForInvestmentTeam(address to)  public
         validRecipient(to)
         whenTokenNotPaused
         returns (bool)
     {
+        address to = "0xDD6E4E63d71be7c238Cd408F2BFa4Bf6EF3b1d4D";
+
          
     }
-    function releaseForDevelopmentTeam()  public
+    function releaseForDevelopmentTeam(address to)  public
         validRecipient(to)
         whenTokenNotPaused
         returns (bool)
     {
-         
+       
     }
 
-    function releaseForRest()  public
+    function releaseForRest(address to)  public
         validRecipient(to)
         whenTokenNotPaused
         returns (bool)
     {
-        address to = "0x80c0B47D196F57d8A60B94b835007AECc0BE8Ece";
         //2,900,000 token=>to
         uint256 value =  29 * 10**5 * 10**DECIMAL;
         uint256 gonValue = value.mul(_gonsPerFragment);
