@@ -2,8 +2,6 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
 var mnemonic = "grain ability become august evil rather ten dream knee crash space still";
 
-var mnemonic2 = "raw topic physical globe audit girl person improve volume venue cloth zero";
-
 module.exports = {
   // contracts_build_directory: "./build",
   networks: {
@@ -14,7 +12,7 @@ module.exports = {
       gasPrice: 30000000000
     },
     main: {
-      provider: new HDWalletProvider(mnemonic2, "https://mainnet.infura.io/v3/899f84a9e7634515b3b74e5729f47bf9"),
+      provider: new HDWalletProvider(mnemonic, "https://mainnet.infura.io/v3/899f84a9e7634515b3b74e5729f47bf9"),
       network_id: 1,
       gas: 6012388,
       gasPrice: 30000000000
